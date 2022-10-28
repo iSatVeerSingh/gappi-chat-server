@@ -1,8 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
-bootstrap();
+const Main = async () => {
+  const App = await NestFactory.create(AppModule);
+
+  try {
+    App.listen(8000);
+  } catch (err) {
+    throw new Error('Something Went Wrong');
+  }
+};
+
+Main();
