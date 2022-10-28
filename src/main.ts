@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 
 const Main = async () => {
   const App = await NestFactory.create(AppModule);
+  App.setGlobalPrefix('api');
 
   try {
     App.listen(8000);
